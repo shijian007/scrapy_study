@@ -11,6 +11,7 @@ import scrapy
 class LagouspiderItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
+    title= scrapy.Field()
     address = scrapy.Field()
     salary = scrapy.Field()
     experience = scrapy.Field()
