@@ -98,3 +98,4 @@ ENV/
 # mypy
 .mypy_cache/
 cookie-change.py
+cookie-change.py
