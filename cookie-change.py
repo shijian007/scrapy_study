@@ -17,7 +17,7 @@ class cookieTrans():
         return itemDict
 
 if __name__ == "__main__":
-    cookie = "网页F12-查看Network--查看Cookie--填在此处"
+    cookie = "网页F12-查看Network--查看Cookie--填此处"
     Cookie = cookieTrans(cookie)
     print(Cookie.cookiechange())
 
