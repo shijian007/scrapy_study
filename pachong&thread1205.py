@@ -81,7 +81,7 @@ if __name__ == "__main__":
     while not parseQueue.empty():
         pass
 
-    # 通知线程是时候退出
+    # 通知线程退出
     exitflag = 1
 
     for th in threads:
