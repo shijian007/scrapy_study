@@ -1,29 +1,32 @@
 #--coding = 'utf-8' --
+import pymysql.cursors
 
-import pymysql  # 导入 pymysql
+config = {
+          'host':'127.0.0.1',
+          'port':3306,
+          'user':'root',
+          'password':'100800112',
+          'database':'learndb',
+          'charset':'utf8mb4',
+          'cursorclass':pymysql.cursors.Cursor,
+          }
 
-# 打开数据库连接
-db = pymysql.connect(host="localhost", user="root",
-                     password="123456", db="test", port=3307)
+# 连接数据库
+connection = pymysql.connect(**config)
 
-# 使用cursor()方法获取操作游标  
-cur = db.cursor()
 
-# 1.查询操作
-# 编写sql 查询语句  user 对应我的表名  
-sql = "select * from user"
 try:
-    cur.execute(sql)  # 执行sql语句
+    with connection.cursor() as cursor:
+        sql = 'SELECT * FROM commodity WHERE price > 100 ORDER BY price'
+        count = cursor.execute(sql) # 影响的行数
+        print(count)
+        result = cursor.fetchall()  # 取出所有行
 
-    results = cur.fetchall()  # 获取查询的所有记录
-    print("id", "name", "password")
-    # 遍历结果
-    for row in results:
-        id = row[0]
-        name = row[1]
-        password = row[2]
-        print(id, name, password)
-except Exception as e:
-    raise e
+        for i in result:            # 打印结果
+            print(i)
+        connection.commit()         # 提交事务
+except:
+    connection.rollback()           # 若出错了，则回滚
+
 finally:
-    db.close()  # 关闭连接
+    connection.close()
