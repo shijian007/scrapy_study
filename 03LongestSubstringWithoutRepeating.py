@@ -9,7 +9,7 @@ class Solution:
         len1 = len(a)
         print(len1)
         i = 0
-        k = 0
+        k = 1
         n = []
         m = []
         while i < len1:
@@ -18,12 +18,12 @@ class Solution:
                 if a[i] ==a[j]:
                     n[k] = i
                     m[k] = j
-                    k = +1
+                    k = k+1
                     print(i,j)
                 else:
-                    j = +1
+                    j = j+1
 
-            i = +1
+            i = i+1
         print(n)
         return n,m
 
