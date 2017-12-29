@@ -9,18 +9,18 @@ class Solution:
         b = nums2[:]
         for i in b:
             a.append(i)
-        sorted(a)
+        a.sort()
 
         print(a)
         if len(a)%2 == 0:
-            print(0.5*(a[int(len(a)/2-1)] + a[int(len(a)/2)]))
+            return 0.5*(a[int(len(a)/2-1)] + a[int(len(a)/2)])
         else:
-            print(a[int(len(a)/2-0.5)])
+            return a[int(len(a)/2-0.5)]
 
 
 if __name__=="__main__":
-    nums1 = [1,2,5,7]
-    nums2 = [8,9,89]
+    nums1 = [1,3]
+    nums2 = [2]
     P = Solution()
-    P.findMedianSortedArrays(nums1,nums2)
+    print(P.findMedianSortedArrays(nums1,nums2))
 
