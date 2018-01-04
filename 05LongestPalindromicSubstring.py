@@ -22,14 +22,14 @@ class Solution:
         size = temp.get(mid)
 
         start = mid - size
-        end = mid + size
+        end = mid + size + 1
         s2 = s1[start: end]
         str = ('').join(s2)
         return str
 
 
 if __name__=="__main__":
-    s = 'rwacbcateenkhkney'
+    s = 'bcabacdcab'
     P = Solution()
     print(P.longestPalindrome(s))
 
