@@ -52,4 +52,4 @@ if __name__=="__main__":
     # s = 'qwertyuiopaszxcv'
     s = 'PAYPALISHIRING'
     P = Solution()
-    P.convert(s, 3)
+    print(P.convert(s, 3))
